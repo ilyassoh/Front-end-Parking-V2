@@ -38,7 +38,7 @@ const Register = () => {
           'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
-          username: name,
+          name,
           email,
           password,
           role, // Ajout du rôle dans les données envoyées au serveur

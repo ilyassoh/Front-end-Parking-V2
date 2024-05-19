@@ -77,7 +77,7 @@ function UsersCrud() {
           <CTableDataCell >
           <div className="d-grid gap-2 d-md-flex justify-content-md-end">
             <CButton className="me-md-2 delete-button" color="danger" shape="rounded-pill"  onClick={() => deleteUser(user.id)}>Delete</CButton>
-            <CButton color="danger" shape="rounded-pill"><Link to={`/actions/updateuser/${user.id}`}>Update</Link></CButton>
+            <CButton color="danger" shape="rounded-pill"><Link to={`/actions/userspage/${user.id}`}>Update</Link></CButton>
           </div>
             </CTableDataCell>
         </CTableRow>

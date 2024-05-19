@@ -3,11 +3,20 @@ import React from 'react'
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
-const UsersCrud = React.lazy(() => import('./views/actions/userscrud/UsersCrud'))
-const UpdateUser = React.lazy(() => import('./views/actions/updateuser/UpdateUser'))
-const Reservation = React.lazy(() => import('./views/actions/reservation/Reservation'))
-const Client = React.lazy(() => import('./views/actions/client/Client'))
-const Place = React.lazy(() => import('./views/actions/place/Place'))
+
+const UsersCrud = React.lazy(() => import('./views/actions/userspage/UsersCrud'))
+const UpdateUser = React.lazy(() => import('./views/actions/userspage/UpdateUser'))
+
+const Reservation = React.lazy(() => import('./views/actions/reservationpage/Reservation'))
+
+const Client = React.lazy(() => import('./views/actions/clientpage/Client'))
+const UpdateClient = React.lazy(() => import('./views/actions/clientpage/UpdateClient'))
+const AddClient = React.lazy(() => import('./views/actions/clientpage/AddClientsPage'))
+
+const Place = React.lazy(() => import('./views/actions/placepage/Place'))
+const UpdatePlace = React.lazy(() => import('./views/actions/placepage/UpdatePlace'))
+const AddPlace = React.lazy(() => import('./views/actions/placepage/AddPlacePage'))
+
 
 
 // Base
@@ -61,11 +70,20 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
-  { path: '/actions/userscrud', name: 'UsersCrud', element: UsersCrud },
+
+  { path: '/actions/users', name: 'UsersCrud', element: UsersCrud },
+  { path: '/actions/userspage/:userId', name: 'UpdateUser', element: UpdateUser },
+
   { path: '/actions/reservation', name: 'Reservation', element: Reservation },
+
   { path: '/actions/client', name: 'Clients', element: Client },
+  { path: '/actions/update-client/:clientId', name: 'UpdateClient', element: UpdateClient },
+  { path: '/actions/add-client', name: 'AddClient', element: AddClient },
+
   { path: '/actions/place', name: 'Places', element: Place },
-  { path: '/actions/updateuser', name: 'UpdateUser', element: UpdateUser },
+  { path: '/actions/update-place/:placetId', name: 'UpdatePlace', element: UpdatePlace },
+  { path: '/actions/add-place', name: 'AddPlace', element: AddPlace },
+
   { path: '/theme/typography', name: 'Typography', element: Typography },
   { path: '/base', name: 'Base', element: Cards, exact: true },
   { path: '/base/accordion', name: 'Accordion', element: Accordion },

@@ -1,11 +1,31 @@
-import axios from 'axios';
+import axios from "axios";
 
-class ReservationService {
-    static BASE_URL = "http://localhost:1010/api/reservation";
+class ParkingService {
+    static BASE_URL = "http://localhost:1010/api/parking";
 
+    static async getParkingById(id, token) {
+        try {
+            const response = await axios.get(`${ParkingService.BASE_URL}/${id}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    }
+    static async findAll(token) {
+        try {
+            const response = await axios.get(ParkingService.BASE_URL, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    }
     static async getAllStatus(token) {
         try {
-            const response = await axios.get(`${ReservationService.BASE_URL}/status`, {
+            const response = await axios.get(`${ParkingService.BASE_URL}/status`,{
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data;
@@ -13,9 +33,9 @@ class ReservationService {
             throw error;
         }
     }
-    static async getAllReservations(search, token) {
+    static async findByEmplacement(emplacement,token) {
         try {
-            const response = await axios.get(`${ReservationService.BASE_URL}?search=${search}`, {
+            const response = await axios.get(`${ParkingService.BASE_URL}/emplacement/${emplacement}`,{
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data;
@@ -23,9 +43,9 @@ class ReservationService {
             throw error;
         }
     }
-    static async findAllPage(page, size, search, token) {
+    static async findByNom(nom,token) {
         try {
-            const response = await axios.get(`${ReservationService.BASE_URL}/page?page=${page}&size=${size}&search=${search}`, {
+            const response = await axios.get(`${ParkingService.BASE_URL}/nom/${nom}`,{
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data;
@@ -33,9 +53,9 @@ class ReservationService {
             throw error;
         }
     }
-    static async getReservationsByClientId(clientId, token) {
+    static async createParking(parkingData,token) {
         try {
-            const response = await axios.get(`${ReservationService.BASE_URL}/client/${clientId}`, {
+            const response = await axios.post(ParkingService.BASE_URL, parkingData , {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data;
@@ -43,9 +63,9 @@ class ReservationService {
             throw error;
         }
     }
-    static async getReservationById(id, token) {
+    static async updateParking(id, parkingData, token) {
         try {
-            const response = await axios.get(`${ReservationService.BASE_URL}/${id}`, {
+            const response = await axios.put(`${ParkingService.BASE_URL}/${id}`, parkingData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data;
@@ -53,31 +73,9 @@ class ReservationService {
             throw error;
         }
     }
-    static async createReservation(reservationData, token) {
+    static async deleteParking(id,token) {
         try {
-            const response = await axios.post(ReservationService.BASE_URL, reservationData, {
-                headers: { Authorization: `Bearer ${token}` }
-            });
-            return response.data;
-        } catch (error) {
-            throw error;
-        }
-    }
-
-    static async editReservation(id, reservationData, token) {
-        try {
-            const response = await axios.put(`${ReservationService.BASE_URL}/${id}`, reservationData, {
-                headers: { Authorization: `Bearer ${token}` }
-            });
-            return response.data;
-        } catch (error) {
-            throw error;
-        }
-    }
-
-    static async deleteReservation(id, token) {
-        try {
-            const response = await axios.delete(`${ReservationService.BASE_URL}/${id}`, {
+            const response = await axios.delete(`${ParkingService.BASE_URL}/${id}`,{
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data;
@@ -86,5 +84,4 @@ class ReservationService {
         }
     }
 }
-
-export default ReservationService;
+export default ParkingService;

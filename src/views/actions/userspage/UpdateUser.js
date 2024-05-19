@@ -81,7 +81,7 @@ function UpdateUser() {
                         <CCard className="mx-4">
                             <CCardBody className="p-4">
                                 <CForm onSubmit={handleSubmit}>
-                                    <h1>Register</h1>
+                                    <h1>Update User </h1>
                                     <p className="text-body-secondary">Update user account</p>
                                     <CInputGroup className="mb-3">
                                         <CInputGroupText>

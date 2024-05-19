@@ -44,7 +44,7 @@ const handleSubmit = async (e) => {
         console.log(error)
         setError(error.message)
         setTimeout(()=>{
-            setError('');
+            setError('Failed to connect');
         }, 5000);
     }
 }
