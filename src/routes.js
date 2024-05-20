@@ -8,6 +8,13 @@ const UsersCrud = React.lazy(() => import('./views/actions/userspage/UsersCrud')
 const UpdateUser = React.lazy(() => import('./views/actions/userspage/UpdateUser'))
 
 const Reservation = React.lazy(() => import('./views/actions/reservationpage/Reservation'))
+const AddReservation = React.lazy(() => import('./views/actions/reservationpage/AddReservation'))
+const UpdateReservation = React.lazy(() => import('./views/actions/reservationpage/UpdateReservation'))
+
+const Parking = React.lazy(() => import('./views/actions/parkingpage/Parking'))
+const AddParking = React.lazy(() => import('./views/actions/parkingpage/AddParking'))
+const UpdateParking = React.lazy(() => import('./views/actions/parkingpage/UpdateParking'))
+
 
 const Client = React.lazy(() => import('./views/actions/clientpage/Client'))
 const UpdateClient = React.lazy(() => import('./views/actions/clientpage/UpdateClient'))
@@ -75,6 +82,13 @@ const routes = [
   { path: '/actions/userspage/:userId', name: 'UpdateUser', element: UpdateUser },
 
   { path: '/actions/reservation', name: 'Reservation', element: Reservation },
+  { path: '/actions/add-reservation', name: 'Reservation', element: AddReservation },
+  { path: '/actions/update-reservation/:reservationId', name: 'Reservation', element: UpdateReservation },
+
+  { path: '/actions/parking', name: 'parking', element: Parking },
+  { path: '/actions/add-parking', name: 'addParking', element: AddParking },
+  { path: '/actions/update-parking/:parkingId', name: 'updateParking', element: UpdateParking },
+
 
   { path: '/actions/client', name: 'Clients', element: Client },
   { path: '/actions/update-client/:clientId', name: 'UpdateClient', element: UpdateClient },

@@ -40,11 +40,11 @@ function UpdateClient() {
         fetchClientDataById(clientId);
     }, [clientId]);
 
-    const fetchClientDataById = async (clientId) => {
+    const fetchClientDataById = async (id) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await ClientService.getClientById(clientId, token);
-            const { numeroMatricule, numeroTelephone, adresse, nom, email, genre, age } = response.client_model;
+            const response = await ClientService.getClientById(id, token);
+            const { numeroMatricule, numeroTelephone, adresse, nom, email, genre, age } = response;
             setClientData({ numeroMatricule, numeroTelephone, adresse, nom, email, genre, age });
         } catch (error) {
             console.error('Error fetching client data:', error);

@@ -96,7 +96,7 @@ const ClientComponent = () => {
                                         <CTableDataCell >
                                             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                                                 <CButton className="me-md-2 delete-button" color="danger" shape="rounded-pill" onClick={() => deleteClient(client.id)}>Delete</CButton>
-                                                <CButton color="danger" shape="rounded-pill"><Link to={`/actions/update-client/${client.id}`} className="white-link">Update</Link></CButton>
+                                                <CButton color="info" shape="rounded-pill" as={Link} to={`/actions/update-client/${client.id}`} className="white-link">Update</CButton>
                                             </div>
                                         </CTableDataCell>
                                     </CTableRow>

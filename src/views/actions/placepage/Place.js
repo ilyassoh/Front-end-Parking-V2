@@ -79,8 +79,9 @@ const PlaceComponent = () => {
                                     {/* Add more cells for other place properties */}
                                     <CTableDataCell>
                                         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                                            <CButton className="me-md-2 delete-button" color="danger" shape="rounded-pill" onClick={() => deletePlace(place.id)}>Delete</CButton>
-                                            <CButton color="primary" shape="rounded-pill" as={Link} to={`/actions/update-place/${place.id}`} className="white-link">Update</CButton>
+                                            <CButton className="me-md-2 delete-button white-link" color="danger" shape="rounded-pill" onClick={() => deletePlace(place.id)}>Delete</CButton>
+                                            <CButton color="info" shape="rounded-pill" as={Link} to={`/actions/update-place/${place.id}`} className="white-link">Update</CButton>
+                                            {/* color="warning" shape="rounded-pill" as={Link} to={`/actions/update-parking/${parking.id}`} */}
                                         </div>
                                     </CTableDataCell>
                                 </CTableRow>
